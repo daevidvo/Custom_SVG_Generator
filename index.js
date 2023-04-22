@@ -44,15 +44,7 @@ iq
             return renderedCircle;
     }
 })
-.then((renderedShape)=>{
+.then((renderedShape)=>{ //function that will create the svg file using the given user inputs
     fs.writeFile('./examples/renderedShape.svg', renderedShape, (err)=>{err?console.log(err):console.log('Your SVG has been generated! Please check ./examples/')})
 })
-
-
-
-
-
-
-
-
-.catch((err)=>{console.log(err)})
+.catch((err)=>{console.log(err)}) //will occur if there is an error thrown (i.e. more than 3 chars in the text)
