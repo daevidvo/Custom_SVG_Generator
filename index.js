@@ -29,18 +29,24 @@ iq
     }
 ])
 .then((data)=>{
-    if(data.text.length > 3) {
-        throw new Error('Please make your text 3 characters or less')
+    if(data.text.trim().length > 3) {
+        throw new Error('Please make your text 3 characters or less (spaces not included)')
+    }
+    if(!isNaN(parseInt(data.text_color))){
+        throw new Error('Please choose a text color keyword or hexadecimal value')
+    }
+    if(!isNaN(parseInt(data.shape_color))){
+        throw new Error('Please choose a shape color keyword or hexadecimal value')
     }
     switch (data.desired_shape[0]){
         case 'Triangle':
-            const renderedTriangle = new Triangle(data.text, data.text_color, data.shape_color).render()
+            const renderedTriangle = new Triangle(data.text.trim(), data.text_color.trim(), data.shape_color.trim()).render()
             return renderedTriangle;
         case 'Square':
-            const renderedSquare = new Square(data.text, data.text_color, data.shape_color).render()
+            const renderedSquare = new Square(data.text.trim(), data.text_color.trim(), data.shape_color.trim()).render()
             return renderedSquare;
         case 'Circle':
-            const renderedCircle = new Circle(data.text, data.text_color, data.shape_color).render()
+            const renderedCircle = new Circle(data.text.trim(), data.text_color.trim(), data.shape_color.trim()).render()
             return renderedCircle;
     }
 })
