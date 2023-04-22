@@ -29,18 +29,30 @@ iq
     }
 ])
 .then((data)=>{
+    if(data.text.length > 3) {
+        throw new Error('Please make your text 3 characters or less')
+    }
     switch (data.desired_shape[0]){
         case 'Triangle':
-            const renderedTriangle = new Triangle(data.text, data.text_color, data.shape_color)
-            return renderedTriangle
+            const renderedTriangle = new Triangle(data.text, data.text_color, data.shape_color).render()
+            return renderedTriangle;
         case 'Square':
-            const renderedSquare = new Square(data.text, data.text_color, data.shape_color)
-            return renderedSquare
+            const renderedSquare = new Square(data.text, data.text_color, data.shape_color).render()
+            return renderedSquare;
         case 'Circle':
-            const renderedCircle = new Circle(data.text, data.text_color, data.shape_color)
-            return renderedCircle
+            const renderedCircle = new Circle(data.text, data.text_color, data.shape_color).render()
+            return renderedCircle;
     }
 })
 .then((renderedShape)=>{
-    console.log(renderedShape)
+    fs.writeFile('./examples/renderedShape.svg', renderedShape, (err)=>{err?console.log(err):console.log('Your SVG has been generated! Please check ./examples/')})
 })
+
+
+
+
+
+
+
+
+.catch((err)=>{console.log(err)})
