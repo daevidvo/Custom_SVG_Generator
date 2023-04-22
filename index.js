@@ -29,16 +29,16 @@ iq
     }
 ])
 .then((data)=>{
-    if(data.text.trim().length > 3) {
+    if(data.text.trim().length > 3) { //checks if the user's inputted text for the logo is more than 3 characters after trimming off white space (if the user did put it in)
         throw new Error('Please make your text 3 characters or less (spaces not included)')
     }
-    if(!isNaN(parseInt(data.text_color))){
+    if(!isNaN(parseInt(data.text_color))){ //checks if the text_color is a number and if it is, then it will throw the error
         throw new Error('Please choose a text color keyword or hexadecimal value')
     }
-    if(!isNaN(parseInt(data.shape_color))){
+    if(!isNaN(parseInt(data.shape_color))){ //checks if the shape_color is a number and if it is, then it will throw the error
         throw new Error('Please choose a shape color keyword or hexadecimal value')
     }
-    switch (data.desired_shape[0]){
+    switch (data.desired_shape[0]){ //must use desired_shape[0] because the choices returns an array
         case 'Triangle':
             const renderedTriangle = new Triangle(data.text.trim(), data.text_color.trim(), data.shape_color.trim()).render()
             return renderedTriangle;
