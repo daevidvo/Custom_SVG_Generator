@@ -1,7 +1,11 @@
-const iq = require('inquirer')
+const iq = require('inquirer') //prompts
+const fs = require('fs') //creates the file
+const Triangle = require('./lib/triangle.js') //triangle class
+const Square = require('./lib/square.js') //square class
+const Circle = require('./lib/circle.js') //circle class
 
 iq
-.prompt([ //prompts that the user will answer in the terminal. this is a promise
+.prompt([ //prompts that the user will answer in the terminal. this is promise based.
     {
         type: 'input',
         name: 'text',
@@ -25,5 +29,18 @@ iq
     }
 ])
 .then((data)=>{
-    console.log(data)
+    switch (data.desired_shape[0]){
+        case 'Triangle':
+            const renderedTriangle = new Triangle(data.text, data.text_color, data.shape_color)
+            return renderedTriangle
+        case 'Square':
+            const renderedSquare = new Square(data.text, data.text_color, data.shape_color)
+            return renderedSquare
+        case 'Circle':
+            const renderedCircle = new Circle(data.text, data.text_color, data.shape_color)
+            return renderedCircle
+    }
+})
+.then((renderedShape)=>{
+    console.log(renderedShape)
 })
