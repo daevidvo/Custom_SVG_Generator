@@ -1,0 +1,6 @@
+
+<svg width='300' height='200' xmlns='http://www.w3.org/2000/svg'>
+    <polygon points='150,0 300,200, 0,200' fill='#6667ab'></polygon>
+    <text x='150' y='150' font-size='60' text-anchor='middle' fill='gold'>sfe</text>
+</svg>
+        
