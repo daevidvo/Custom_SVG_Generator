@@ -7,9 +7,9 @@ const Circle = require('./lib/circle.js'); //circle class
 iq
 .prompt([ //prompts that the user will answer in the terminal. this is promise based.
     {
-        type: 'input',
-        name: 'text',
-        message: 'What text would you like to have in your svg? (Please use 3 or less characters)'
+        type: 'input', //type input means the user will input a str
+        name: 'text', //name of the variable the user input will be stored under
+        message: 'What text would you like to have in your svg? (Please use 3 or less characters)' //message that shows up in the terminal for the user to read
     },
     {
         type: 'input',
@@ -49,7 +49,7 @@ iq
             const renderedCircle = new Circle(data.text.trim(), data.text_color.trim(), data.shape_color.trim()).render();
             return renderedCircle;
         default:
-            throw new Error('Please choose a shape');
+            throw new Error('Please choose a shape'); //if the user doesn't choose a shape, this error will throw
     };
 })
 .then((renderedShape)=>{ //function that will create the svg file using the given user inputs
