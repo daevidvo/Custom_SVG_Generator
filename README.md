@@ -85,6 +85,8 @@ Using this concept, I wrote tests that outlined my desired outcomes and wrote co
     });
 ```
 
+-------------------
+
 ## Installation Instructions 📥
 
 To install the application, simply download the files or clone this GitHub repo on to your local machine.
