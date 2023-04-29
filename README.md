@@ -118,9 +118,9 @@ If you'd like to run the tests for this application, simply open the terminal in
 ## Author Info 👺
 
 ### ***daevidvo***
-* [Github](github.com/daevidvo)
-* [LinkedIn](linkedin.com/in/daevidvo)
-* [Instagram](instagram.com/daevidvo)
+* [Github](https://www.github.com/daevidvo)
+* [LinkedIn](https://www.linkedin.com/in/daevidvo)
+* [Instagram](https://www.instagram.com/daevidvo)
 
 --------------------------
 
